@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        input, button { width: 100%; padding: 10px; margin-bottom: 10px; }
+        button { background-color: #4CAF50; color: white; }
+    </style>
+    <script>
+        function validateForm() {
+            let password = document.forms["studentForm"]["password"].value;
+            let confirmPassword = document.forms["studentForm"]["confirmPassword"].value;
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+<h2 style="text-align:center">Student Registration Form</h2>
+<form name="studentForm" action="insert.php" method="POST" onsubmit="return validateForm()">
+    <label>First Name:</label>
+    <input type="text" name="firstName" required>
+
+    <label>Last Name:</label>
+    <input type="text" name="lastName" required>
+
+    <label>Roll No/ID:</label>
+    <input type="text" name="rollNo" required>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+
+    <label>Confirm Password:</label>
+    <input type="password" name="confirmPassword" required>
+
+    <label>Contact Number:</label>
+    <input type="text" name="contactNumber" pattern="\d{10}" title="Enter 10 digits" required>
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

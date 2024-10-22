@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        form { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        input, button { width: 100%; padding: 10px; margin-bottom: 10px; }
+        button { background-color: #2196F3; color: white; }
+    </style>
+    <script>
+        function validateISBN() {
+            let isbn = document.forms["bookForm"]["isbn"].value;
+            if (isbn.length !== 13) {
+                alert("ISBN should be exactly 13 characters long");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+<h2 style="text-align:center">Library Management - Add Book</h2>
+<form name="bookForm" action="addBook.php" method="POST" onsubmit="return validateISBN()">
+    <label>Book Name:</label>
+    <input type="text" name="bookName" required>
+
+    <label>ISBN No:</label>
+    <input type="text" name="isbn" required>
+
+    <label>Book Title:</label>
+    <input type="text" name="bookTitle" required>
+
+    <label>Author Name:</label>
+    <input type="text" name="authorName" required>
+
+    <label>Publisher Name:</label>
+    <input type="text" name="publisherName" required>
+
+    <button type="submit">Add Book</button>
+</form>
+
+</body>
+</html>
